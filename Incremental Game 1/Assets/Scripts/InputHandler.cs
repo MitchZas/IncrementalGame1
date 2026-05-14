@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
-    private bool isClicked;
     [SerializeField] SpriteRenderer _spriteRenderer;
 
     [Header("Auto Click Settings")]
@@ -16,13 +15,11 @@ public class InputHandler : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main;
-        isClicked = false;
         _autoClickTimer = autoClickInterval;
     }
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        isClicked = true;
         if (!context.started) return;
         PerformClick();
     }
