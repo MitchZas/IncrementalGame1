@@ -242,6 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2133007016}
+  autoClick: 1
+  autoClickInterval: 3
 --- !u!114 &1342180815
 MonoBehaviour:
   m_ObjectHideFlags: 0

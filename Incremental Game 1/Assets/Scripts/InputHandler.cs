@@ -8,23 +8,23 @@ public class InputHandler : MonoBehaviour
     private bool isClicked;
     [SerializeField] SpriteRenderer _spriteRenderer;
 
+    [Header("Auto Click Settings")]
+    public bool autoClick = false;
+    public float autoClickInterval = 3f;
+    private float _autoClickTimer;
+
     private void Awake()
     {
         _mainCamera = Camera.main;
         isClicked = false;
-
-        Vector3 scaleUp = new Vector3(4, 4, 4);
+        _autoClickTimer = autoClickInterval;
     }
 
     public void OnClick(InputAction.CallbackContext context)
     {
         isClicked = true;
         if (!context.started) return;
-
-        var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
-        if (!rayhit.collider) return;
-
-        Debug.Log(rayhit.collider.gameObject.name);
+        PerformClick();
     }
 
     void Update()
@@ -33,5 +33,24 @@ public class InputHandler : MonoBehaviour
         {
             _spriteRenderer.color = Color.red;
         }
+
+        if (autoClick)
+        {
+            _autoClickTimer -= Time.deltaTime;
+
+            if (_autoClickTimer <= 0f)
+            {
+                PerformClick();
+                _autoClickTimer = autoClickInterval;
+                Debug.Log("Click Registered");
+            }
+        }
+    }
+
+    private void PerformClick()
+    {
+        var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!rayhit.collider) return;
+        Debug.Log(rayhit.collider.gameObject.name);
     }
 }
