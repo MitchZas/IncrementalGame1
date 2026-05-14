@@ -29,11 +29,6 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        if (isClicked)
-        {
-            _spriteRenderer.color = Color.red;
-        }
-
         if (autoClick)
         {
             _autoClickTimer -= Time.deltaTime;
