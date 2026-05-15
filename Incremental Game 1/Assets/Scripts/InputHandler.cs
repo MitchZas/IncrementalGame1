@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] AudioSource mouseClickSFX;
 
     [Header("Auto Click Settings")]
     public bool autoClick = false;
@@ -34,6 +35,7 @@ public class InputHandler : MonoBehaviour
             {
                 PerformClick();
                 _autoClickTimer = autoClickInterval;
+                mouseClickSFX.Play();
                 Debug.Log("Click Registered");
             }
         }
