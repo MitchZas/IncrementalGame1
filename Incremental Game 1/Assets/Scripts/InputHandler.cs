@@ -42,7 +42,6 @@ public class InputHandler : MonoBehaviour
                 score++;
                 _autoClickTimer = autoClickInterval;
                 mouseClickSFX.Play();
-                Debug.Log("Click Registered");
             }
         }
     }
