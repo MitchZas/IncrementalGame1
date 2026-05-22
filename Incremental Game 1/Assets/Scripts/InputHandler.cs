@@ -17,6 +17,7 @@ public class InputHandler : MonoBehaviour
     public int score = 0;
     public int scorePerClick = 1;
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] Upgrades upgradesScript;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class InputHandler : MonoBehaviour
     private void AddScore()
     {
         score += scorePerClick;
+        if (upgradesScript.canIncreaseOutput) score += scorePerClick;
+
         UpdateScoreUI();
     }
 

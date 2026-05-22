@@ -853,7 +853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   scriptScore: {fileID: 1342180814}
+  animator: {fileID: 1554489028}
+  animController: {fileID: 1554489029}
+  Pickaxe: {fileID: 1554489025}
   scoreText: {fileID: 0}
+  canIncreaseOutput: 0
 --- !u!4 &867362000
 Transform:
   m_ObjectHideFlags: 0
@@ -1595,6 +1599,7 @@ MonoBehaviour:
   score: 0
   scorePerClick: 1
   _scoreText: {fileID: 368105027}
+  upgradesScript: {fileID: 867361999}
 --- !u!114 &1342180815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,6 +1976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1554489028}
   mouseClickScript: {fileID: 1342180814}
+  animComplete: 0
 --- !u!1 &1803448691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,11 +2103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: c2a869b04061fdd4fb1cf6a1e1a28dd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.73
+      value: -4.98
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: c2a869b04061fdd4fb1cf6a1e1a28dd3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: c2a869b04061fdd4fb1cf6a1e1a28dd3, type: 3}
       propertyPath: m_LocalPosition.z
