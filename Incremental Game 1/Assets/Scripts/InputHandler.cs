@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -7,7 +6,7 @@ using TMPro;
 public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
-    private bool isClicked;
+    public bool isClicked;
 
     [Header("Auto Click Settings")]
     public bool autoClick = false;
@@ -31,9 +30,10 @@ public class InputHandler : MonoBehaviour
         UpdateScoreUI();
     }
 
-    private void OnButtonClick()
+    public void OnButtonClick()
     {
         AddScore();
+        isClicked = true;
     }
 
     private void AddScore()
@@ -47,30 +47,36 @@ public class InputHandler : MonoBehaviour
         _scoreText.text = "Score: " + score;
     }
 
-    public void OnClick(InputAction.CallbackContext context)
-    {
-        isClicked = true;
-        if (!context.started) return;
-        PerformClick();
-    }
+    //public void OnClick(InputAction.CallbackContext context)
+    //{
+    //    if (!context.started) return;
+    //    PerformClick();
+    //}
 
     void Update()
-    {
+    {        
         if (autoClick)
         {
             _autoClickTimer -= Time.deltaTime;
             if (_autoClickTimer <= 0f)
             {
-                AddScore();
+                //AddScore();
                 _autoClickTimer = autoClickInterval;
             }
         }
     }
 
-    private void PerformClick()
-    {
-        var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
-        if (!rayhit.collider) return;
-        Debug.Log(rayhit.collider.gameObject.name);
-    }
+    //public void PerformClick()
+    //{
+    //    var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+    //    if (!rayhit.collider) return;
+
+    //    if(rayhit.collider.gameObject.name == "MineButton")
+    //    {
+    //        isClicked = true;
+    //        AddScore();
+    //    }
+
+    //    Debug.Log(rayhit.collider.gameObject.name);
+    //}
 }
