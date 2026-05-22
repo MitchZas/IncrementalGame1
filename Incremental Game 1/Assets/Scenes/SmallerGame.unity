@@ -1088,7 +1088,7 @@ MonoBehaviour:
       - m_Target: {fileID: 867361999}
         m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
         m_MethodName: IncreasedSpeed
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
