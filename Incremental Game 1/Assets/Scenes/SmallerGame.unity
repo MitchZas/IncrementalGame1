@@ -856,7 +856,6 @@ MonoBehaviour:
   animator: {fileID: 1554489028}
   animController: {fileID: 1554489029}
   Pickaxe: {fileID: 1554489025}
-  scoreText: {fileID: 0}
   canIncreaseOutput: 0
 --- !u!4 &867362000
 Transform:
@@ -1070,7 +1069,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
     m_PressedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.4117647}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1594,6 +1593,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClicked: 0
+  Upgrade1Button: {fileID: 888090670}
+  upgradeButton1Text: {fileID: 1457712328}
+  Upgrade2Button: {fileID: 372368217}
+  upgradeButton2Text: {fileID: 1034119746}
   autoClick: 0
   autoClickInterval: 2
   score: 0

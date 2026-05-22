@@ -8,6 +8,12 @@ public class InputHandler : MonoBehaviour
     private Camera _mainCamera;
     public bool isClicked;
 
+    [Header("Upgrade Buttons")]
+    [SerializeField] Button Upgrade1Button;
+    [SerializeField] private TextMeshProUGUI upgradeButton1Text;
+    [SerializeField] Button Upgrade2Button;
+    [SerializeField] private TextMeshProUGUI upgradeButton2Text;
+
     [Header("Auto Click Settings")]
     public bool autoClick = false;
     public float autoClickInterval = 1f;
@@ -50,12 +56,6 @@ public class InputHandler : MonoBehaviour
         _scoreText.text = "Score: " + score;
     }
 
-    //public void OnClick(InputAction.CallbackContext context)
-    //{
-    //    if (!context.started) return;
-    //    PerformClick();
-    //}
-
     void Update()
     {        
         if (autoClick)
@@ -68,18 +68,4 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
-
-    //public void PerformClick()
-    //{
-    //    var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
-    //    if (!rayhit.collider) return;
-
-    //    if(rayhit.collider.gameObject.name == "MineButton")
-    //    {
-    //        isClicked = true;
-    //        AddScore();
-    //    }
-
-    //    Debug.Log(rayhit.collider.gameObject.name);
-    //}
 }
