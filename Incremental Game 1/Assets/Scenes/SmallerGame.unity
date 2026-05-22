@@ -602,7 +602,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 372368218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867361999}
+        m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
+        m_MethodName: IncreaseOutput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &372368218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   scriptScore: {fileID: 1342180814}
+  scoreText: {fileID: 0}
 --- !u!4 &867362000
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,7 +1589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b5875741e77a24fa66107675733e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 0}
   autoClick: 0
   autoClickInterval: 2
   score: 0
