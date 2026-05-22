@@ -1,31 +1,55 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
-    [SerializeField] SpriteRenderer _spriteRenderer;
-    [SerializeField] AudioSource mouseClickSFX;
-    public int score;
-
-    [Header("Scripts")]
-    [SerializeField] Score clickScoreScript;
+    private bool isClicked;
 
     [Header("Auto Click Settings")]
     public bool autoClick = false;
-    public float autoClickInterval = 3f;
+    public float autoClickInterval = 1f;
     private float _autoClickTimer;
+
+    [Header("Score Settings")]
+    public int score = 0;
+    public int scorePerClick = 1;
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     private void Awake()
     {
         _mainCamera = Camera.main;
+        isClicked = false;
         _autoClickTimer = autoClickInterval;
-        score = 0;
+    }
+
+    private void Start()
+    {
+        UpdateScoreUI();
+    }
+
+    private void OnButtonClick()
+    {
+        AddScore();
+    }
+
+    private void AddScore()
+    {
+        score += scorePerClick;
+        UpdateScoreUI();
+    }
+
+    public void UpdateScoreUI()
+    {
+        _scoreText.text = "Score: " + score;
     }
 
     public void OnClick(InputAction.CallbackContext context)
     {
+        isClicked = true;
         if (!context.started) return;
         PerformClick();
     }
@@ -35,13 +59,10 @@ public class InputHandler : MonoBehaviour
         if (autoClick)
         {
             _autoClickTimer -= Time.deltaTime;
-
             if (_autoClickTimer <= 0f)
             {
-                PerformClick();
-                score++;
+                AddScore();
                 _autoClickTimer = autoClickInterval;
-                mouseClickSFX.Play();
             }
         }
     }
@@ -50,7 +71,6 @@ public class InputHandler : MonoBehaviour
     {
         var rayhit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
         if (!rayhit.collider) return;
-        mouseClickSFX.Play();
         Debug.Log(rayhit.collider.gameObject.name);
     }
 }
