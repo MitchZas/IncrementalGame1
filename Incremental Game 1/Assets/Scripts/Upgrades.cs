@@ -10,11 +10,22 @@ public class Upgrades : MonoBehaviour
     int maxValue = 100;
 
     // Increase speed by 10% 
-    public void IncreasedSpeed (int speed)
+    public void IncreasedSpeed ()
     {
         //Increased Pickaxe Animation Speed by 10% 
-        scriptScore.score -= 3;
-        scriptScore.score = Mathf.Clamp(scriptScore.score, minValue,maxValue);
+        ClampScore(3);
+    }
+
+    public void IncreaseOutput()
+    {
+        // When Pickaxe hits the rock, increase score + 2 
+        scriptScore.score -= 1;
+    }
+
+    private void ClampScore(int price)
+    {
+        scriptScore.score -= price;
+        scriptScore.score = Mathf.Clamp(scriptScore.score, minValue, maxValue);
         scriptScore.UpdateScoreUI();
     }
 }
